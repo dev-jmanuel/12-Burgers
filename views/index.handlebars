@@ -1,0 +1,91 @@
+    
+<div id ="headerSection">
+  <h2>Burger.</h2>
+</div>
+
+<!-- Middle Section -->
+<div id="middleSection">
+
+  <!-- Left  -->
+  <div class="leftMiddle">
+    <div class="uneaten center">
+      {{#each burger}}
+        {{#unless devoured}}
+          {{> burgers/burgerBlock devoured=1}}
+        {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+
+  <!-- Center -->
+  <div class="centerMiddle">
+    <div class="center">
+      <input id="burgerName" type="text" placeholder="Name of Your Burger" data-eaten="0">
+      <button id="addBurger" type="button">Add Your Burger</button>
+    </div>
+  </div>
+
+  <!-- Right -->
+  <div class="rightMiddle">
+    <div class="eaten center">
+      {{#each burger}}
+        {{#if devoured}}
+          {{> burgers/burgerBlock devoured=0}}
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+// Add Burger to Database Button
+  $("#addBurger").on("click", function(){
+    console.log("Add Burger Button Clicked");
+
+    // Create an Object to be Sent to the Backend
+    let burger = {
+      "burger_name": $(burgerName).val(),
+      "devoured": $(burgerName).data("eaten")
+    };
+
+    $.post("/api/burger", burger).done((response)=>{
+      console.log("Created a New Burger!");
+      // Reload the page to get the updated list
+      location.reload();
+    });
+
+  }); // End of Create New Burger
+
+  // Update Burger from Database Button
+
+  $(".burgerBlock").on("click", function(){
+    console.log("Button Clicked");
+
+    const burgerID = $(this).data("id");
+    const devoured = $(this).data("eaten");
+
+    const burgerUpdate = {
+      "devoured": devoured
+    };
+
+    console.log("button id is " + burgerID);
+
+    $.ajax("/api/burger/" + burgerID, {
+      type: "PUT",
+      data: burgerUpdate
+    }).done((response)=>{
+      console.log("Burger Updated");
+      location.reload();
+    });
+
+  });
+</script>
+
+<!-- End of Middle Section -->
+<footer>
+    <div class="copyright" style="font-weight: 600;">
+        Joshua Manuel <a style="font-weight: 400; color: #f7a434;">© 2019</a>
+    </div>
+</footer>
