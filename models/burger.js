@@ -24,7 +24,6 @@ const burger = {
 
   updateOne : (cols, vals, condition, cb) =>{
 
-
     console.log("Executing Update One Model");
 
     orm.updateOne("burgers", cols, vals, condition, (result)=>{

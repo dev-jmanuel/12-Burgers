@@ -19,7 +19,6 @@ module.exports = function(app) {
   app.post("/api/burger", function(req, res) {
     console.log("burger Route Hit");
     burger.insertOne(["burger_name","devoured"], [req.body["burger_name"], req.body.devoured], (result)=>{
-      // Send back the ID of the new quote
       console.log(result);
       res.json(result);
     });
@@ -30,11 +29,10 @@ module.exports = function(app) {
     let burgerID = req.params.id
     let condition = "id = " + burgerID ;
 
-    console.log("burger Route Hit. ID is "+ burgerID);
-    console.log("Dev is " + req.body.devoured);
+    console.log("UPDATE request: ID #"+ burgerID);
+    console.log("where devoured is " + req.body.devoured);
 
     burger.updateOne(["devoured"], [req.body.devoured], condition, (result)=>{
-      // Send back the ID of the new quote
       console.log("Executing First Declared CallBack");
       res.json(result);
     });

@@ -1,5 +1,5 @@
 // Import database connection
-var connection = require("../config/connection.js");
+var connection = require("./connection.js");
 
 // Helper function to convert object key/value pairs to SQL syntax
 function printQuestionMarks(num) {
@@ -15,7 +15,7 @@ const orm = {
 
   selectAll : (tableInput, cb) => {
 
-    let strQuery = `SELECT * FROM ` + tableInput + `;`;
+    let strQuery = `SELECT * FROM ${tableInput} ;`;
 
     connection.query(strQuery, (err, result)=>{
       if (err) throw err;
@@ -27,10 +27,9 @@ const orm = {
   insertOne: (table, cols, vals, cb) => {
 
     let strCol = cols.toString();
-    let sqlVal = printQuestionMarks(vals.length);
-    let strQuery = `INSERT INTO  ` + table + ` (` + strCol; + `) VALUES (` + sqlVal + `);`;
+    let strQuery = `INSERT INTO  ${table} (${strCol}) VALUES ('${vals[0]}', ${vals[1]});`;
 
-    connection.query(strQuery, vals, (err, result) => {
+    connection.query(strQuery, (err, result) => {
       if (err) throw err;
       console.log("Sucesfully Added");
       cb(result);
@@ -41,7 +40,7 @@ const orm = {
   updateOne : (table, cols, vals, condition, cb) =>{
 
     let strCol = cols.toString();
-    let strQuery = `UPDATE ` + table + ` SET ` + strCol; + ` = ? WHERE ` + condition;
+    let strQuery = `UPDATE ${table} SET ${strCol} = ? WHERE ${condition}`;
 
     connection.query(strQuery, vals, (err, result) => {
       if (err) throw err;
