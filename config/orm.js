@@ -1,15 +1,6 @@
 // Import database connection
 var connection = require("./connection.js");
 
-// Helper function to convert object key/value pairs to SQL syntax
-function printQuestionMarks(num) {
-  var arr = [];
-  for (var i = 0; i < num; i++) {
-    arr.push("?");
-  }
-  return arr.toString();
-}
-
 // Object for all our SQL statement functions.
 const orm = {
 
