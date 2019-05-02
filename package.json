@@ -2,7 +2,7 @@
   "name": "burger",
   "version": "1.0.0",
   "description": "Burgers is a full-stack browser application which logs your burger orders and the burgers that you've eaten.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
