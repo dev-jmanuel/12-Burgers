@@ -6,9 +6,10 @@ Burgers is a full-stack browser application which logs your burger orders and th
 
 * [Getting Started](#getting-started)
 * [Architecture](#architecture)
+* [Bugs](#bugs)
 
 ## Getting Started <a name="getting-started"></a>
-To install, run the following codes in your git bash:
+To install, run the following codes in your Terminal/Bash window:
 
 ```bash
 git clone https://github.com/joshespr/12-Burgers.git
@@ -18,7 +19,19 @@ git clone https://github.com/joshespr/12-Burgers.git
 npm install
 ```
 
-To start the application on your localhost, run the following code in your git bash: 
+...then create the application's local database via MySQL by running the following code on the same window:
+
+```bash
+mysql -u root < db/schema.sql;
+```
+
+**Optional:** To populate the database with preset data, run:
+
+```bash
+mysql -u root < db/seeds.sql;
+```
+
+To start the application on your localhost, run:
 
 ```bash
 node server.js
@@ -30,6 +43,10 @@ This application follows the MVC design pattern:
 - For models, we use MySQL for its database to handle all our data.
 - For views, we use Handlebars as our template engine to generate our HTML and CSS for additional styling. 
 - For controllers, we use Express to handle routing, data parsing, and server set-up on the local host, as well as Node for data routing and executing javascript query calls to the database. Also has a homemade ORM to hold all our SQL statement functions
+
+## Bugs <a name="bugs"></a>
+
+- Heroku router encouters an H13 error (Connection closed without response) when trying to get "/" route. Will fix later
 
 <!-- ## Change Log
 Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples: 
