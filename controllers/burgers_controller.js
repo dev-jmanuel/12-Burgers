@@ -3,7 +3,7 @@ const burger = require("../models/burger.js");
 
 // Export routes for server.js to use.
 module.exports = function(app) {
-  // Create all our routes and set up logic within those routes where required.
+
   app.get("/", function(req, res) {
       console.log("Route Path Hit");
       burger.selectAll(function(data) {

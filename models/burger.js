@@ -11,10 +11,8 @@ const burger = {
 
   },
 
-  // The variables cols and vals are arrays.
   insertOne : (cols, vals, cb) => {
 
-    // Execute orm Function to Post Data into Database
     orm.insertOne("burgers", cols, vals, (result)=>{
       console.log("Executing Insert One Model");
       cb(result);

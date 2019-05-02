@@ -36,8 +36,7 @@ body #middleSection {
 
 body #middleSection .leftMiddle {
     display: grid;
-    grid-area: leftMiddle;  
-    float: left;
+    grid-area: leftMiddle;
     margin: 0 39px;
     padding: 8px;    
     border-radius: 5px;
@@ -50,14 +49,12 @@ body #middleSection .leftMiddle {
 
 body #middleSection .centerMiddle {
     display: grid;
-    grid-area: centerMiddle;    
-    float: left;
+    grid-area: centerMiddle;  
 }
 
 body #middleSection .rightMiddle {
     display: grid;
-    grid-area: rightMiddle;    
-    float: left;
+    grid-area: rightMiddle;  
     margin: 0 39px;
     padding: 8px;    
     border-radius: 5px;
