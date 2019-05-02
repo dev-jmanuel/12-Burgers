@@ -5,7 +5,7 @@ const path = require("path");
 
 // Set up the Express App 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 // Set up static content for the app
 app.use(express.static("public"));
@@ -20,12 +20,13 @@ app.set("view engine", "handlebars");
 
 // Link to routing
 require("./controllers/burgers_controller.js")(app);
-// var routes = require("./controllers/burgers_controller.js");
-
-// app.use(routes);
 
 // Start the server to begin listening
-app.listen(PORT, function() {
-    console.log("Server listening on: http://localhost:" + PORT);
+// app.listen(PORT, function() {
+//     console.log("Server listening on: http://localhost:" + PORT);
 
-});
+// });
+
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
