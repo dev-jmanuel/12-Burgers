@@ -44,10 +44,6 @@ This application follows the MVC design pattern:
 - For views, we use Handlebars as our template engine to generate our HTML and CSS for additional styling. 
 - For controllers, we use Express to handle routing, data parsing, and server set-up on the local host, as well as Node for data routing and executing javascript query calls to the database. Also has a homemade ORM to hold all our SQL statement functions
 
-## Bugs <a name="bugs"></a>
-
-- Heroku router encouters an H13 error (Connection closed without response) when trying to get "/" route. Will fix later
-
 <!-- ## Change Log
 Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples: 
 
